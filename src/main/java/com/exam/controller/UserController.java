@@ -26,6 +26,19 @@ public class UserController {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    @PostMapping("/theme")
+    public ResponseEntity<String> saveThemePreference(@RequestParam String userId, @RequestParam String theme) {
+        // Save theme preference to the database
+        return ResponseEntity.ok("Theme preference saved");
+    }
+
+    @GetMapping("/theme")
+    public ResponseEntity<String> getThemePreference(@RequestParam String userId) {
+        // Retrieve theme preference from the database
+        String theme = "light"; // Replace with actual logic
+        return ResponseEntity.ok(theme);
+    }
+
     //creating user
     @PostMapping("/")
     public User createUser(@RequestBody User user) throws Exception {
