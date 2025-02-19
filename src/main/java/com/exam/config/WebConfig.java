@@ -14,9 +14,13 @@ public class WebConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("https://parikshaprep.vercel.app/") // Change to your Vercel URL
+                        .allowedOrigins(
+                                "http://localhost:4200", // Local frontend for development
+                                "https://parikshaprep.vercel.app" // Vercel production URL
+                        )
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                        .allowedHeaders("*");
+                        .allowedHeaders("*")
+                        .allowCredentials(true); // Enable credentials for JWT
             }
         };
     }
